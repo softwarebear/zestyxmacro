@@ -14,7 +14,7 @@ typedef enum
 #define EVENT_OBSERVERS(function, message, number) void On##function(WindowsEvent windowsEvent)\
 {\
     if (windowsEvent != WM_##message)\
-    { throw "Wrong Event Received"; } \
+    { throw "On" #function "() received some windowsEvent other than WM_" #message; } \
 }
 
 EVENT_CODE_GENERATOR( EVENT_OBSERVERS )
